@@ -1,1 +1,591 @@
 
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heritage Sweets | Authentic Sweets & Dessert Shop</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --bg-dark: #0f0f11;
+      --card-bg: #18181c;
+      --accent-gold: #d4a017;
+      --accent-hover: #f3b61f;
+      --text-light: #f5f5f7;
+      --text-muted: #a1a1a6;
+      --border-color: rgba(212, 160, 23, 0.2);
+      --header-h: 64px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: var(--header-h);
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    section, #home {
+      scroll-margin-top: var(--header-h);
+    }
+
+    /* Header */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: var(--header-h);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 5%;
+      background: rgba(15, 15, 17, 0.98);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--accent-gold);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-gold);
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.4rem;
+      color: var(--accent-gold);
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .btn {
+      padding: 8px 18px;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-decoration: none;
+      display: inline-block;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-gold {
+      background: var(--accent-gold);
+      color: #000;
+      transition: background 0.2s ease;
+    }
+
+    .btn-gold:hover {
+      background: var(--accent-hover);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--accent-gold);
+      color: var(--accent-gold);
+      background: transparent;
+    }
+
+    /* Hero */
+    .hero {
+      padding: calc(var(--header-h) + 50px) 20px 50px;
+      text-align: center;
+      background: linear-gradient(rgba(15, 15, 17, 0.8), rgba(15, 15, 17, 0.95)),
+                  url('https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=1200&q=80') center/cover;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .hero-btn-group {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    section {
+      padding: 50px 5%;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--accent-gold);
+      text-align: center;
+      margin-bottom: 5px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-bottom: 25px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      overflow: hidden;
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-body {
+      padding: 15px;
+    }
+
+    .card-price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .reservation-form {
+      max-width: 500px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+    }
+
+    .form-group {
+      margin-bottom: 12px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 0.8rem;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 10px;
+      background: #0f0f11;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      color: #fff;
+      font-size: 0.95rem;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--accent-gold);
+    }
+
+    .form-row {
+      display: flex;
+      gap: 10px;
+    }
+
+    .contact-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 220px;
+      border-radius: 10px;
+      border: 1px solid var(--border-color);
+    }
+
+    /* Footer */
+    footer {
+      background: #08080a;
+      border-top: 1px solid var(--border-color);
+      padding: 50px 5% 0;
+    }
+
+    .footer-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1.2fr;
+      gap: 36px;
+      padding-bottom: 36px;
+    }
+
+    .footer-col .logo {
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    .footer-col p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-bottom: 8px;
+    }
+
+    .footer-col h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--text-light);
+      margin-bottom: 14px;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 9px;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-gold);
+    }
+
+    .footer-contact li {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-bottom: 10px;
+      list-style: none;
+    }
+
+    .footer-contact i {
+      color: var(--accent-gold);
+      width: 14px;
+      margin-top: 3px;
+    }
+
+    .footer-contact a {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    .footer-contact a:hover {
+      color: var(--accent-gold);
+    }
+
+    .social-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .social-row a {
+      width: 34px;
+      height: 34px;
+      border: 1px solid var(--border-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-gold);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .social-row a:hover {
+      background: var(--accent-gold);
+      color: #000;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border-color);
+      padding: 16px 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .menu-toggle { display: block; }
+
+      .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(15, 15, 17, 0.98);
+        flex-direction: column;
+        padding: 15px;
+        gap: 12px;
+        display: none;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .form-row { flex-direction: column; gap: 0; }
+      .header-btn { display: none; }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        text-align: center;
+      }
+
+      .footer-contact li {
+        justify-content: center;
+      }
+
+      .social-row {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <a href="#home" class="logo">Heritage Sweets.</a>
+    <div class="menu-toggle" onclick="toggleMenu()" id="menuIcon"><i class="fa-solid fa-bars"></i></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" onclick="closeMenu()">Home</a></li>
+      <li><a href="#about" onclick="closeMenu()">About</a></li>
+      <li><a href="#menu" onclick="closeMenu()">Menu</a></li>
+      <li><a href="#reserve" onclick="closeMenu()">Pre-Order</a></li>
+      <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+    </ul>
+    <a href="https://www.foodpanda.com.bd" target="_blank" class="btn btn-gold header-btn">Order Online</a>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div>
+      <span style="color: var(--accent-gold); font-size: 0.75rem; text-transform: uppercase;">Authentic Sweets & Desserts</span>
+      <h1>Heritage Sweets (Outlet 1)</h1>
+      <p style="color: var(--text-muted); font-size: 0.9rem;">Khati upadane toiri aitihybahi mistir shera sambhar.</p>
+      <div class="hero-btn-group">
+        <a href="#menu" class="btn btn-gold">Explore Menu</a>
+        <a href="tel:01969999866" class="btn btn-outline"><i class="fa-solid fa-phone"></i> Call Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2 class="section-title">Our Heritage</h2>
+    <p class="section-subtitle">Amader somporke janun</p>
+    <div style="max-width: 700px; margin: 0 auto; text-align: center;">
+      <p style="color: var(--text-muted); font-size: 0.9rem;">
+        Heritage Sweets (Outlet 1) Plot-56/A, Umme Kulsum Road, Dhaka 1229-e obosthito. Amra shera maner chana o ghee diye aitihybahi misti toiri kori.
+      </p>
+    </div>
+  </section>
+
+  <!-- Menu Section -->
+  <section id="menu">
+    <h2 class="section-title">Our Menu</h2>
+    <p class="section-subtitle">Amader jonopriyo misti gulo</p>
+
+    <div class="grid">
+      <!-- Item 1 -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=600&q=80" alt="Komolabhog" loading="lazy">
+        <div class="card-body">
+          <h3>Komolabhog</h3>
+          <p style="color: var(--text-muted); font-size: 0.8rem;">Rosalo o misti shader special komolabhog.</p>
+          <div class="card-price-row">
+            <span style="color: var(--accent-gold); font-weight: 700;">BDT 400 /kg</span>
+            <a href="https://www.foodpanda.com.bd" target="_blank" class="btn btn-gold">Order</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=600&q=80" alt="Mawa Laddoo" loading="lazy">
+        <div class="card-body">
+          <h3>Mawa Laddoo</h3>
+          <p style="color: var(--text-muted); font-size: 0.8rem;">Khati mawa o ghee diye toiri laddoo.</p>
+          <div class="card-price-row">
+            <span style="color: var(--accent-gold); font-weight: 700;">BDT 500 /kg</span>
+            <a href="https://www.foodpanda.com.bd" target="_blank" class="btn btn-gold">Order</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=600&q=80" alt="Hafsi Sandesh" loading="lazy">
+        <div class="card-body">
+          <h3>Hafsi Sandesh</h3>
+          <p style="color: var(--text-muted); font-size: 0.8rem;">Khati kheer-er shushadu Hafsi Sandesh.</p>
+          <div class="card-price-row">
+            <span style="color: var(--accent-gold); font-weight: 700;">BDT 450 /kg</span>
+            <a href="https://www.foodpanda.com.bd" target="_blank" class="btn btn-gold">Order</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pre-Order Section -->
+  <section id="reserve">
+    <h2 class="section-title">Pre-Order Sweets</h2>
+    <p class="section-subtitle">Onusthaner jonno order korun</p>
+
+    <form class="reservation-form" onsubmit="event.preventDefault(); alert('Order request grahon kora hoyeche!');">
+      <div class="form-row">
+        <div class="form-group" style="flex: 1;">
+          <label>Name</label>
+          <input type="text" class="form-control" placeholder="Apnar nam" required>
+        </div>
+        <div class="form-group" style="flex: 1;">
+          <label>Phone</label>
+          <input type="tel" class="form-control" placeholder="01969-999866" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group" style="flex: 1;">
+          <label>Date</label>
+          <input type="date" class="form-control" required>
+        </div>
+        <div class="form-group" style="flex: 1;">
+          <label>Quantity (KG)</label>
+          <input type="number" class="form-control" placeholder="KG" required>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-gold" style="width: 100%;">Confirm Pre-Order</button>
+    </form>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2 class="section-title">Visit Outlet 1</h2>
+    <p class="section-subtitle">Thikana</p>
+    <div class="contact-container">
+      <div>
+        <p style="margin-bottom: 10px;"><i class="fa-solid fa-location-dot" style="color: var(--accent-gold);"></i> <strong>Location:</strong> Plot-56/A, Umme Kulsum Road, Dhaka 1229</p>
+        <p style="margin-bottom: 10px;"><i class="fa-solid fa-phone" style="color: var(--accent-gold);"></i> <strong>Phone:</strong> <a href="tel:01969999866" style="color: var(--accent-gold); text-decoration: none;">01969-999866</a></p>
+        <p style="margin-bottom: 10px;"><i class="fa-solid fa-clock" style="color: var(--accent-gold);"></i> <strong>Status:</strong> Opens 9:00 AM</p>
+      </div>
+      <div>
+        <iframe src="https://maps.google.com/maps?q=Plot-56/A,%20Umme%20Kulsum%20Road,%20Dhaka%201229&t=&z=15&ie=UTF8&iwloc=&output=embed" loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a href="#home" class="logo">Heritage Sweets.</a>
+        <p>Plot-56/A, Umme Kulsum Road, Dhaka 1229-e obosthito aitihybahi mistir dokan — khati chana o ghee diye toiri প্রতিটি misti.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.foodpanda.com.bd" target="_blank" aria-label="Foodpanda"><i class="fa-solid fa-bag-shopping"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#reserve">Pre-Order</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Visit Us</h4>
+        <ul class="footer-contact">
+          <li><i class="fa-solid fa-location-dot"></i><span>Plot-56/A, Umme Kulsum Road, Dhaka 1229</span></li>
+          <li><i class="fa-solid fa-phone"></i><a href="tel:01969999866">01969-999866</a></li>
+          <li><i class="fa-solid fa-clock"></i><span>Daily, from 9:00 AM</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Heritage Sweets. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('navLinks');
+      const icon = document.querySelector('#menuIcon i');
+      nav.classList.toggle('active');
+      const isOpen = nav.classList.contains('active');
+      icon.className = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+    }
+
+    function closeMenu() {
+      const nav = document.getElementById('navLinks');
+      const icon = document.querySelector('#menuIcon i');
+      nav.classList.remove('active');
+      icon.className = 'fa-solid fa-bars';
+    }
+  </script>
+
+</body>
+</html>
